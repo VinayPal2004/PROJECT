@@ -1,0 +1,108 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    background: #535252;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* App container */
+.app {
+    width: 90%;
+    max-width: 600px;
+    background: #f7f3f3;
+    border-radius: 12px;
+    padding: 25px 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Main heading */
+.app h1 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Quiz card */
+.quiz {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Question text */
+.quiz h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Answer buttons container */
+#ans-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Answer buttons */
+.btn {
+    background: #fff;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid #999;
+    border-radius: 8px;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.btn:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Correct and Wrong button state */
+.btn.correct {
+    background: #a5f3b2;
+    color: #0b4213;
+    border-color: #6bd178;
+}
+
+.btn.wrong {
+    background: #f7b5b5;
+    color: #4a0b0b;
+    border-color: #e26b6b;
+}
+
+/* Next button styling */
+#submitbtn,#restartbtn {
+    display: block;
+    margin: 10px auto 0;
+    background: #1f6feb;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#nextbtn:hover {
+    background: #0b84ff;
+    transform: scale(1.05);
+}
