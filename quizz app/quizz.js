@@ -44,69 +44,64 @@ const submit = document.getElementById('submitbtn');
 const restart = document.getElementById('restartbtn');
 
 /* show question*/
-const loadquestions =()=>{
+function loadquestions(){
     const data = questions[index];
-    console.log(data);
-    quebox.innerHTML = `${index +1}. ${
-        data.question
-    }`;
-   options.forEach((btn,index)=>{
-    btn.innerHTML = data.answers[index].text;
-    btn.dataset.correct = data.answers[index].correct ;
-    console.log(btn);
-    btn.classList.remove('correct','wrong');
-     btn.disabled = false;
-      btn.style.display = "inline-block";
-   });
+    quebox.innerHTML =`${index+1}. ${data.question}`;
+    options.forEach((btn,index)=>{
+        btn.innerHTML = data.answers[index].text;
+        btn.dataset.correct = data.answers[index].correct;
+        btn.classList.remove('correct','wrong');
+        btn.disabled = false;
+        btn.style.display ='inline-block';
 
-     submit.style.display = "inline-block"; // 🔹 add this
-      if (index === questions.length - 1) {
-        submit.innerText = "Submit";
-    } else {
-        submit.innerText = "Next";
-    }
-    restart.style.display = "none";  
+    });
+    submit.style.display ='inline-block';
+if(index === questions.length -1){
+    submit.innerText = 'Submit';
+
+}
+else{
+    submit.innerText ='Next';
+
+}
+restart.style.display='none';
 };
-
 options.forEach((btn)=>{
     btn.addEventListener('click',(e)=>{
-        const selectedbtn =e.target.dataset.correct === "true";
-        if(selectedbtn)score++;
+        const iscorrect = e.target.dataset.correct === 'true';
+        if(iscorrect)score++;
         options.forEach((btn)=>{
-            if(btn.dataset.correct ==="true"){
+            if(btn.dataset.correct ==='true'){
                 btn.classList.add('correct');
+
             }
-             else if (btn === e.target && !selectedbtn) btn.classList.add("wrong");
+            
+               else if (btn === e.target && !iscorrect) btn.classList.add("wrong");
+            
         });
     });
 });
-
-
 submit.addEventListener('click',()=>{
     index++;
-    if (index < questions.length){
+    if(index < questions.length){
         loadquestions();
     }
-    else {
-            showscore();
-    }
-    
+    else{
+        showscore();
+        }
 });
-
-
 const showscore =()=>{
-    quebox.innerHTML = `you scored ${score} out of ${questions.length}`;
-    options.forEach(btn=> btn.style.display= "none");
-   submit.style.display="none";
-    restart.style.display = "inline-block";
-   
-};
+    quebox.innerHTML = `Your Score is ${score} out of ${questions.length}`;
+    options.forEach(btn => btn.style.display ='none');
+    submit.style.display ='none';
+    restart.style.display='inline-block';
+
+}
 restart.addEventListener('click',()=>{
     index =0;
     score =0;
-  
     loadquestions();
-})
+});
 
 
 
