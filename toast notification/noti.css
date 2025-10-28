@@ -1,0 +1,96 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+button{
+    background-color: rgb(184, 153, 153);
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    width: 80px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+.buttons{
+    padding: 20px;
+}
+#tostbox{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+
+}
+.tost{
+    width: 400px;
+    height: 80px;
+    background:#fff;
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 20px ;
+    position: relative;
+}
+.tost i {
+  font-size: 18px;
+}
+
+/* Specific Toast Colors */
+.success {
+  background: linear-gradient(135deg, #28a745, #3dcf65);
+}
+
+.error {
+  background: linear-gradient(135deg, #dc3545, #ff6b6b);
+}
+
+.invalid {
+  background: linear-gradient(135deg, #ffc107, #ffb347);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+.tost::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: green;
+    animation: anim 5s linear forwards;
+}
+@keyframes anim{
+    100%{
+        width : 0;
+    }
+}
+.tost.invalid::after{
+    background: rgb(184, 121, 3);
+}
+.tost.error::after{
+    background: rgb(161, 2, 2);
+}
